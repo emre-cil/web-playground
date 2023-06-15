@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/fontawesome.all.min.css" />
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="hello">
+      <div class="player"></div>
+      <div class="head"></div>
+      <button class="button_test">test</button>
+      <button>sdfdf</button>
+    </div>
+    <div class="go-top">
+      <i class="fas fa-chevron-up"></i>
+      <i class="fas fa-chevron-up"></i>
+    </div>
+    <!-- resizable spinner -->
+
+    <script>
+      let hello = document.querySelector('.hello');
+      hello.addEventListener('click', function () {
+        if (hello.style.width == '50%') {
+          hello.style.width = '10%';
+        } else {
+          hello.style.width = '50%';
+        }
+      });
+
+      let player = document.querySelector('.player');
+      let head = document.querySelector('.head');
+      document.addEventListener('mousemove', function (event) {
+        let x = event.clientX;
+        let y = event.clientY;
+        setTimeout(function () {
+          player.style.left = x - 26 + 'px';
+          player.style.top = y - 26 + 'px';
+        }, 150);
+        head.style.left = x + 'px';
+        head.style.top = y + 'px';
+      });
+      let buttons = document.querySelectorAll('button');
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('mouseover', function () {
+          head.style.display = 'none';
+        });
+        buttons[i].addEventListener('mouseout', function () {
+          head.style.display = 'block';
+        });
+      }
+
+      window.addEventListener('scroll', function () {
+        var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        var goTopElement = document.querySelector('.go-top');
+
+        if (scrolled > 600) {
+          goTopElement.classList.add('active');
+        } else {
+          goTopElement.classList.remove('active');
+        }
+      });
+
+      var goTopButton = document.querySelector('.go-top');
+      goTopButton.addEventListener('click', function () {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      });
+    </script>
+  </body>
+</html>
