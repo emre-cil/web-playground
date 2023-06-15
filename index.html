@@ -44,11 +44,11 @@
         let x = event.clientX;
         let y = event.clientY;
         setTimeout(function () {
-          player.style.left = x - 31 + 'px';
-          player.style.top = y - 31 + 'px';
+          player.style.left = x + 'px';
+          player.style.top = y + 'px';
         }, 150);
-        head.style.left = x - 5 + 'px';
-        head.style.top = y - 5 + 'px';
+        head.style.left = x - 2 + 'px';
+        head.style.top = y - 2 + 'px';
       });
       let buttons = document.querySelectorAll('button');
       for (let i = 0; i < buttons.length; i++) {
@@ -57,13 +57,18 @@
           buttons[i].style.backgroundColor = 'black';
           buttons[i].style.color = 'white';
           head.style.opacity = '0';
-          player.style.width = '80px';
+          player.style.width = '90px';
+          player.style.height = '90px';
+          player.style.margin = '-46px 0 0 -46px';
         });
 
         buttons[i].addEventListener('mouseout', function () {
           buttons[i].style.backgroundColor = 'white';
           buttons[i].style.color = 'black';
           head.style.opacity = '1';
+          player.style.width = '50px';
+          player.style.height = '50px';
+          player.style.margin = '-26px 0 0 -26px';
         });
       }
 
